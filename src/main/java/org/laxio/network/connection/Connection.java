@@ -20,6 +20,8 @@ public interface Connection {
 
     void setProtocolState(ProtocolState state);
 
+    int getProtocolVersion();
+
     Protocol getProtocol();
 
     void setProtocol(Protocol protocol);
