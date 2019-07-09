@@ -1,7 +1,7 @@
 package org.laxio.util;
 
 import org.junit.jupiter.api.Test;
-import org.laxio.LaxioApplication;
+import org.laxio.Application;
 import org.laxio.exception.thread.ThreadApplicationNotFound;
 import org.laxio.exception.thread.ThreadGroupApplicationNotFound;
 import org.laxio.thread.LaxioThread;
@@ -20,7 +20,7 @@ class ThreadUtilTest {
         setGroup(thread, null);
         assertThrows(ThreadApplicationNotFound.class, () -> ThreadUtil.getApplication(thread), "Standard thread with no group should throw not found");
 
-        LaxioApplication application = createApplication();
+        Application application = createApplication();
         LaxioThread lxt = new LaxioThread(application);
 
         assertEquals(application, lxt.getApplication(), "Laxio Thread application should be the one passed in arguments");
@@ -35,8 +35,8 @@ class ThreadUtilTest {
         //
     }
 
-    private LaxioApplication createApplication() {
-        return ImplementationProxyUtil.implement(LaxioApplication.class, new UnsupportedOperationInvocationHandler());
+    private Application createApplication() {
+        return ImplementationProxyUtil.implement(Application.class, new UnsupportedOperationInvocationHandler());
     }
 
     private void setGroup(Thread thread, ThreadGroup group) throws NoSuchFieldException, IllegalAccessException {

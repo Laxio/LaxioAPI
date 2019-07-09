@@ -1,10 +1,10 @@
 package org.laxio.network;
 
-import org.laxio.LaxioApplication;
+import org.laxio.Application;
 
 public interface Network {
 
-    LaxioApplication getApplication();
+    Application getApplication();
 
     void start();
 

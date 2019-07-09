@@ -1,6 +1,6 @@
 package org.laxio.util;
 
-import org.laxio.LaxioApplication;
+import org.laxio.Application;
 import org.laxio.exception.thread.ThreadApplicationNotFound;
 import org.laxio.exception.thread.ThreadGroupApplicationNotFound;
 import org.laxio.thread.LaxioThread;
@@ -26,10 +26,10 @@ public final class ThreadUtil {
      * @throws ThreadGroupApplicationNotFound if the thread has a group, {@link ThreadUtil#getApplication(ThreadGroup)}
      * @throws org.laxio.exception.conditions.IllegalNullException if the thread has a null application
      */
-    public static LaxioApplication getApplication(Thread thread) {
+    public static Application getApplication(Thread thread) {
         if (thread instanceof LaxioThread) {
             LaxioThread lxt = (LaxioThread) thread;
-            LaxioApplication application = lxt.getApplication();
+            Application application = lxt.getApplication();
             Conditions.notNull(application, "application");
             return application;
         }
@@ -50,10 +50,10 @@ public final class ThreadUtil {
      * @throws ThreadGroupApplicationNotFound if the thread group has no application in it's inheritance
      * @throws org.laxio.exception.conditions.IllegalNullException if the thread group has a null application
      */
-    public static LaxioApplication getApplication(ThreadGroup threadGroup) {
+    public static Application getApplication(ThreadGroup threadGroup) {
         if (threadGroup instanceof LaxioThreadGroup) {
             LaxioThreadGroup lxtg = (LaxioThreadGroup) threadGroup;
-            LaxioApplication application = lxtg.getApplication();
+            Application application = lxtg.getApplication();
             Conditions.notNull(application, "application");
             return application;
         }
@@ -61,7 +61,7 @@ public final class ThreadUtil {
         return getApplication(threadGroup, threadGroup);
     }
 
-    private static LaxioApplication getApplication(ThreadGroup originGroup, ThreadGroup threadGroup) {
+    private static Application getApplication(ThreadGroup originGroup, ThreadGroup threadGroup) {
         if (threadGroup.getParent() != null) {
             return getApplication(originGroup, threadGroup.getParent());
         } else {

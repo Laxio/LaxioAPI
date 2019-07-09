@@ -1,16 +1,16 @@
-package org.laxio.thread;
+package org.laxio.event;
 
 import org.laxio.Application;
 
-public class LaxioThreadGroup extends ThreadGroup {
+public class BasicApplicationEvent implements ApplicationEvent {
 
     private final Application application;
 
-    public LaxioThreadGroup(Application application) {
-        super(application.getName());
+    public BasicApplicationEvent(Application application) {
         this.application = application;
     }
 
+    @Override
     public Application getApplication() {
         return application;
     }

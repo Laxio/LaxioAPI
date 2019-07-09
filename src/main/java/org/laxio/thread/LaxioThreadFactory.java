@@ -1,6 +1,6 @@
 package org.laxio.thread;
 
-import org.laxio.LaxioApplication;
+import org.laxio.Application;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,14 +11,14 @@ public class LaxioThreadFactory implements ThreadFactory {
 
     private final LaxioThreadFactory parentFactory;
 
-    private final LaxioApplication application;
+    private final Application application;
     private final String prefix;
 
-    public LaxioThreadFactory(LaxioApplication application) {
+    public LaxioThreadFactory(Application application) {
         this(application, null);
     }
 
-    public LaxioThreadFactory(LaxioApplication application, String prefix) {
+    public LaxioThreadFactory(Application application, String prefix) {
         this.parentFactory = null;
         this.application = application;
         this.prefix = prefix;

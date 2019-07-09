@@ -9,7 +9,7 @@ public interface Laxio {
      *
      * @return a set of applications running on the current JVM
      */
-    Set<LaxioApplication> getApplications();
+    Set<Application> getApplications();
 
     /**
      * Returns the application with the provided name
@@ -17,6 +17,6 @@ public interface Laxio {
      * @param name the name to lookup
      * @return the application with the provided name, or null if it does not exist
      */
-    LaxioApplication getByName(String name);
+    Application getByName(String name);
 
 }

@@ -1,11 +1,12 @@
 package org.laxio;
 
+import org.laxio.listener.ListenerManager;
 import org.laxio.network.Network;
+import org.laxio.protocol.ProtocolRegistry;
 
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
-public interface LaxioApplication {
+public interface Application {
 
     String getName();
 
@@ -20,5 +21,9 @@ public interface LaxioApplication {
     boolean isRunning();
 
     void stop();
+
+    ListenerManager getListenerManager();
+
+    ProtocolRegistry getProtocolRegistry();
 
 }

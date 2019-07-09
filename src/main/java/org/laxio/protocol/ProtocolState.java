@@ -4,6 +4,7 @@ public enum ProtocolState {
 
     HANDSHAKE,
     STATUS,
-    LOGIN
+    LOGIN,
+    PLAY
 
 }

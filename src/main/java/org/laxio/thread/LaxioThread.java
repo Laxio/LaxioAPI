@@ -1,17 +1,17 @@
 package org.laxio.thread;
 
-import org.laxio.LaxioApplication;
+import org.laxio.Application;
 import org.laxio.util.ThreadUtil;
 
 public class LaxioThread extends Thread {
 
-    private final LaxioApplication application;
+    private final Application application;
 
-    public LaxioThread(LaxioApplication application) {
+    public LaxioThread(Application application) {
         this.application = application;
     }
 
-    public LaxioThread(Runnable target, LaxioApplication application) {
+    public LaxioThread(Runnable target, Application application) {
         super(target);
         this.application = application;
     }
@@ -21,7 +21,7 @@ public class LaxioThread extends Thread {
         this.application = ThreadUtil.getApplication(group);
     }
 
-    public LaxioThread(String name, LaxioApplication application) {
+    public LaxioThread(String name, Application application) {
         super(name);
         this.application = application;
     }
@@ -31,7 +31,7 @@ public class LaxioThread extends Thread {
         this.application = ThreadUtil.getApplication(group);
     }
 
-    public LaxioThread(Runnable target, String name, LaxioApplication application) {
+    public LaxioThread(Runnable target, String name, Application application) {
         super(target, name);
         this.application = application;
     }
@@ -48,7 +48,7 @@ public class LaxioThread extends Thread {
         this.application = ThreadUtil.getApplication(group);
     }
 
-    public LaxioApplication getApplication() {
+    public Application getApplication() {
         return application;
     }
 
